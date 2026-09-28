@@ -1,0 +1,28 @@
+﻿@model DMQ_MyAppMVC.Models.DMQ_Product
+
+@{
+    ViewData["Title"] = "Xóa sản phẩm";
+}
+
+<h2>Xóa sản phẩm</h2>
+
+<h3>Bạn có chắc chắn muốn xóa sản phẩm này không?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Tên sản phẩm:</dt>
+        <dd class="col-sm-10">@Model.Name</dd>
+
+        <dt class="col-sm-2">Danh mục:</dt>
+        <dd class="col-sm-10">@Model.DMQ_Category?.Name</dd>
+
+        <dt class="col-sm-2">Giá chuẩn:</dt>
+        <dd class="col-sm-10">@Model.Price.ToString("N0") đ</dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Xóa" class="btn btn-danger" /> |
+        <a asp-action="Index" class="btn btn-secondary">Quay lại danh sách</a>
+    </form>
+</div>
